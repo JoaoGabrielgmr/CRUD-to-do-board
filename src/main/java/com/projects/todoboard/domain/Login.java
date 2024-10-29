@@ -15,7 +15,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -34,25 +33,24 @@ import lombok.NoArgsConstructor;
 @Data
 
 @Entity
-@Table(name = "tb_board")
-public class Board implements Serializable{
+@Table(name = "tb_login")
+public class Login implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_board;
+    private Long id_login;
 
     @EqualsAndHashCode.Exclude
     private String name;
 
     @EqualsAndHashCode.Exclude
-    @JsonIgnore
-    @OneToMany(mappedBy = "board")
-    private Set<Sticker> stickers = new HashSet<>();
+    private String password;
 
     @EqualsAndHashCode.Exclude
-    @ManyToOne
-    private Login login = new Login();
+    @JsonIgnore
+    @OneToMany(mappedBy = "login")
+    private Set<Board> boards = new HashSet<>();
     
 //     @EqualsAndHashCode.Exclude
 //     private User user = new User();

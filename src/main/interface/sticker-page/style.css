@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+}
+
+#header {
+    background-color: brown;
+    color: aliceblue;
+}
+
+.card{
+    min-width: 280px;
+    min-height: 250px;
+    margin: 20px;
+}
+
+textarea{
+
+    resize: none;
+}
